@@ -1,5 +1,5 @@
 # 20GamesChallenge
-Small repository for the 20 Games Challenge
+Small repository for the [20 Games Challenge](https://20_games_challenge.gitlab.io/)
 
 # Games
 ## 1 - [Escape from R'lyeh](https://c0d3m4nc3r.itch.io/escape-from-rlyeh)
