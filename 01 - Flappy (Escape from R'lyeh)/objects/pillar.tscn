@@ -1,0 +1,71 @@
+[gd_scene load_steps=6 format=3 uid="uid://b0tn2rdh233c8"]
+
+[ext_resource type="Script" path="res://objects/pillar.gd" id="1_pyktj"]
+[ext_resource type="Texture2D" uid="uid://socosmsv8u1p" path="res://addons/imgs/Super Grotto Escape by ansimuz/Environment/Layers/tileset.png" id="2_0gi3c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1dpem"]
+atlas = ExtResource("2_0gi3c")
+region = Rect2(129, 64, 47, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3qpdo"]
+size = Vector2(144, 512)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2va08"]
+size = Vector2(32, 224)
+
+[node name="Pillar" type="RigidBody2D"]
+collision_mask = 2
+gravity_scale = 0.0
+can_sleep = false
+freeze_mode = 1
+script = ExtResource("1_pyktj")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = 128.0
+offset_right = 80.0
+offset_bottom = 584.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_1dpem")
+expand_mode = 5
+stretch_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -584.0
+offset_right = 80.0
+offset_bottom = -128.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_1dpem")
+expand_mode = 5
+stretch_mode = 1
+flip_h = true
+flip_v = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -384)
+shape = SubResource("RectangleShape2D_3qpdo")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(0, 384)
+shape = SubResource("RectangleShape2D_3qpdo")
+
+[node name="PointArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PointArea"]
+shape = SubResource("RectangleShape2D_2va08")
+debug_color = Color(0.688682, 0.318813, 0.954152, 0.42)
+
+[connection signal="body_exited" from="PointArea" to="." method="_on_point_area_body_exited"]

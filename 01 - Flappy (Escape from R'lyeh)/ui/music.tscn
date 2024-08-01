@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://daxpj30of73ky"]
+
+[ext_resource type="AudioStream" uid="uid://bn4adsttk53r" path="res://addons/audio/music by Clement Panchout/Clement Panchout _ Violence.wav" id="1_k7efi"]
+
+[node name="Music" type="AudioStreamPlayer"]
+stream = ExtResource("1_k7efi")
+autoplay = true
+bus = &"Music"

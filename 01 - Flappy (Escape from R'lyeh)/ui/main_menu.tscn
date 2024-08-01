@@ -1,0 +1,413 @@
+[gd_scene load_steps=21 format=3 uid="uid://p1ivmtk0i21x"]
+
+[ext_resource type="Script" path="res://system/main_menu.gd" id="1_1dgug"]
+[ext_resource type="Texture2D" uid="uid://y1s7djgce3n4" path="res://addons/imgs/Super Grotto Escape by ansimuz/Environment/Layers/UI.png" id="2_tmk0l"]
+[ext_resource type="Texture2D" uid="uid://0mgh328uqpk2" path="res://addons/imgs/Super Grotto Escape by ansimuz/Environment/Layers/tileset-2.png" id="3_gkw6u"]
+[ext_resource type="FontFile" uid="uid://y0xpa8bfmbwv" path="res://addons/fonts/DwarvenAxe BB W00 Regular.ttf" id="4_lek3b"]
+[ext_resource type="Script" path="res://system/volume_control.gd" id="5_2gew0"]
+[ext_resource type="AudioStream" uid="uid://bvsquxo6s5s2a" path="res://addons/audio/interface sfx pack by ObsydianX/Confirm_tones/style4/confirm_style_4_003.ogg" id="5_xixbe"]
+[ext_resource type="AudioStream" uid="uid://q7i10muv8n7e" path="res://addons/audio/music by Clement Panchout/Retro_ Spooky Soundscape_ The Whispering Shadows Dungeon _Clement Panchout 2016.wav" id="6_p1rr3"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mydrc"]
+texture = ExtResource("2_tmk0l")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 15.0
+texture_margin_bottom = 16.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(0, 0, 47, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sijae"]
+atlas = ExtResource("3_gkw6u")
+region = Rect2(16, 128, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yv14v"]
+atlas = ExtResource("3_gkw6u")
+region = Rect2(16, 192, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mhekg"]
+atlas = ExtResource("3_gkw6u")
+region = Rect2(16, 160, 32, 16)
+
+[sub_resource type="LabelSettings" id="LabelSettings_tlgyf"]
+font = ExtResource("4_lek3b")
+font_size = 50
+outline_size = 6
+outline_color = Color(0.0823529, 0.0666667, 0.137255, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_l7d5t"]
+line_spacing = 10.0
+font = ExtResource("4_lek3b")
+font_size = 28
+outline_size = 6
+outline_color = Color(0.0823529, 0.0666667, 0.137255, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_g3gai"]
+font = ExtResource("4_lek3b")
+font_size = 35
+outline_size = 6
+outline_color = Color(0.0823529, 0.0666667, 0.137255, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_q62fo"]
+font = ExtResource("4_lek3b")
+font_size = 150
+outline_size = 40
+outline_color = Color(0.0823529, 0.0666667, 0.137255, 1)
+
+[sub_resource type="Animation" id="Animation_wsej7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menu Panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(41, 187)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Title:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(175, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Menu Panel/Credits:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(71, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Menu Panel/Settings:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_o2mqo"]
+resource_name = "credits"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menu Panel/Credits:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(71, 0), Vector2(261, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_6csqj"]
+resource_name = "default"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menu Panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(-287, 187), Vector2(45, 187)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Title:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(175, -181), Vector2(175, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3f3x5"]
+resource_name = "settings"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menu Panel/Settings:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(260, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bbwbp"]
+_data = {
+"RESET": SubResource("Animation_wsej7"),
+"credits": SubResource("Animation_o2mqo"),
+"default": SubResource("Animation_6csqj"),
+"settings": SubResource("Animation_3f3x5")
+}
+
+[node name="Menu" type="CanvasLayer"]
+script = ExtResource("1_1dgug")
+
+[node name="Menu Panel" type="Panel" parent="."]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 41.0
+offset_top = -173.0
+offset_right = 301.0
+offset_bottom = 173.0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_mydrc")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 46.0
+offset_top = 40.0
+offset_right = -46.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 2
+
+[node name="BtnPlay" type="TextureButton" parent="Menu Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+focus_mode = 0
+texture_normal = SubResource("AtlasTexture_sijae")
+texture_pressed = SubResource("AtlasTexture_yv14v")
+texture_hover = SubResource("AtlasTexture_mhekg")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Menu Panel/VBoxContainer/BtnPlay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "PLAY"
+label_settings = SubResource("LabelSettings_tlgyf")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BtnSettings" type="TextureButton" parent="Menu Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+focus_mode = 0
+texture_normal = SubResource("AtlasTexture_sijae")
+texture_pressed = SubResource("AtlasTexture_yv14v")
+texture_hover = SubResource("AtlasTexture_mhekg")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Menu Panel/VBoxContainer/BtnSettings"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "SETTINGS"
+label_settings = SubResource("LabelSettings_tlgyf")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BtnCredits" type="TextureButton" parent="Menu Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+focus_mode = 0
+texture_normal = SubResource("AtlasTexture_sijae")
+texture_pressed = SubResource("AtlasTexture_yv14v")
+texture_hover = SubResource("AtlasTexture_mhekg")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Menu Panel/VBoxContainer/BtnCredits"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "CREDITS
+"
+label_settings = SubResource("LabelSettings_tlgyf")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Credits" type="Panel" parent="Menu Panel"]
+unique_name_in_owner = true
+visible = false
+z_index = -1
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 71.0
+offset_top = -173.0
+offset_right = 260.0
+offset_bottom = 173.0
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_mydrc")
+metadata/_edit_group_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu Panel/Credits"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 46.0
+offset_top = 40.0
+offset_right = -46.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Menu Panel/Credits/VBoxContainer"]
+layout_mode = 2
+text = "Assets by:
+Chierit
+Ansimuz
+Clement Panchout
+ObsydianX"
+label_settings = SubResource("LabelSettings_l7d5t")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Settings" type="Panel" parent="Menu Panel"]
+unique_name_in_owner = true
+visible = false
+z_index = -1
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -173.0
+offset_right = 260.0
+offset_bottom = 173.0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_mydrc")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu Panel/Settings"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 46.0
+offset_top = 40.0
+offset_right = -46.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 2
+alignment = 1
+
+[node name="Label2" type="Label" parent="Menu Panel/Settings/VBoxContainer"]
+layout_mode = 2
+text = "Volume"
+label_settings = SubResource("LabelSettings_g3gai")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Volume Slider" type="HSlider" parent="Menu Panel/Settings/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+max_value = 1.0
+step = 0.1
+script = ExtResource("5_2gew0")
+bus_name = "Master"
+
+[node name="Label3" type="Label" parent="Menu Panel/Settings/VBoxContainer"]
+layout_mode = 2
+text = "SFX"
+label_settings = SubResource("LabelSettings_g3gai")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Volume Slider2" type="HSlider" parent="Menu Panel/Settings/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+max_value = 1.0
+step = 0.1
+script = ExtResource("5_2gew0")
+bus_name = "SFX"
+
+[node name="Label4" type="Label" parent="Menu Panel/Settings/VBoxContainer"]
+layout_mode = 2
+text = "Music
+"
+label_settings = SubResource("LabelSettings_g3gai")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Volume Slider3" type="HSlider" parent="Menu Panel/Settings/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+max_value = 1.0
+step = 0.1
+script = ExtResource("5_2gew0")
+bus_name = "Music"
+
+[node name="Title" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -465.0
+offset_right = 465.0
+offset_bottom = 165.0
+grow_horizontal = 2
+text = "Escape from R'lyeh"
+label_settings = SubResource("LabelSettings_q62fo")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_bbwbp")
+}
+
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("5_xixbe")
+bus = &"SFX"
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_p1rr3")
+autoplay = true
+bus = &"Music"
+
+[connection signal="button_up" from="Menu Panel/VBoxContainer/BtnPlay" to="." method="_on_btn_play_button_up"]
+[connection signal="button_up" from="Menu Panel/VBoxContainer/BtnSettings" to="." method="_on_btn_settings_button_up"]
+[connection signal="button_up" from="Menu Panel/VBoxContainer/BtnCredits" to="." method="_on_btn_credits_button_up"]

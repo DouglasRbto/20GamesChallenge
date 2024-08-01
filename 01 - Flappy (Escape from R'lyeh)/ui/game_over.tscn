@@ -1,0 +1,242 @@
+[gd_scene load_steps=16 format=3 uid="uid://dyrntghd0pmd6"]
+
+[ext_resource type="FontFile" uid="uid://y0xpa8bfmbwv" path="res://addons/fonts/DwarvenAxe BB W00 Regular.ttf" id="1_s0lak"]
+[ext_resource type="Script" path="res://system/game_over.gd" id="1_tuabt"]
+[ext_resource type="Texture2D" uid="uid://y1s7djgce3n4" path="res://addons/imgs/Super Grotto Escape by ansimuz/Environment/Layers/UI.png" id="2_ptrl8"]
+[ext_resource type="Texture2D" uid="uid://0mgh328uqpk2" path="res://addons/imgs/Super Grotto Escape by ansimuz/Environment/Layers/tileset-2.png" id="3_fi46k"]
+[ext_resource type="AudioStream" uid="uid://bvsquxo6s5s2a" path="res://addons/audio/interface sfx pack by ObsydianX/Confirm_tones/style4/confirm_style_4_003.ogg" id="5_3y7lf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wty86"]
+font = ExtResource("1_s0lak")
+font_size = 150
+outline_size = 40
+outline_color = Color(0.0823529, 0.0666667, 0.137255, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pbuw2"]
+texture = ExtResource("2_ptrl8")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(0, 0, 48, 48)
+
+[sub_resource type="LabelSettings" id="LabelSettings_b2gb1"]
+font = ExtResource("1_s0lak")
+font_size = 50
+outline_size = 7
+outline_color = Color(0.0823529, 0.0666667, 0.137255, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52ukv"]
+atlas = ExtResource("3_fi46k")
+region = Rect2(16, 128, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cbggo"]
+atlas = ExtResource("3_fi46k")
+region = Rect2(16, 192, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m7b0l"]
+atlas = ExtResource("3_fi46k")
+region = Rect2(16, 160, 32, 16)
+
+[sub_resource type="LabelSettings" id="LabelSettings_l2gq6"]
+font = ExtResource("1_s0lak")
+font_size = 50
+outline_size = 6
+outline_color = Color(0.0823529, 0.0666667, 0.137255, 1)
+
+[sub_resource type="Animation" id="Animation_xrwps"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.588235)]
+}
+
+[sub_resource type="Animation" id="Animation_nt6df"]
+resource_name = "default"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.588235)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j6wvj"]
+_data = {
+"RESET": SubResource("Animation_xrwps"),
+"default": SubResource("Animation_nt6df")
+}
+
+[node name="GameOver" type="CanvasLayer"]
+script = ExtResource("1_tuabt")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.588235)
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -260.0
+offset_top = 63.0
+offset_right = 260.0
+offset_bottom = 228.0
+grow_horizontal = 2
+text = "Game Over"
+label_settings = SubResource("LabelSettings_wty86")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -181.0
+offset_top = -103.0
+offset_right = 181.0
+offset_bottom = 39.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_pbuw2")
+
+[node name="Label2" type="Label" parent="ColorRect/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -88.0
+offset_top = 21.0
+offset_right = 88.0
+offset_bottom = 77.0
+grow_horizontal = 2
+text = "Total Score"
+label_settings = SubResource("LabelSettings_b2gb1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LblScore" type="Label" parent="ColorRect/Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -88.0
+offset_top = -75.0
+offset_right = 88.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "000
+"
+label_settings = SubResource("LabelSettings_b2gb1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BtnRestart" type="TextureButton" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -102.0
+offset_top = -265.0
+offset_right = 102.0
+offset_bottom = -178.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 3
+focus_mode = 0
+texture_normal = SubResource("AtlasTexture_52ukv")
+texture_pressed = SubResource("AtlasTexture_cbggo")
+texture_hover = SubResource("AtlasTexture_m7b0l")
+stretch_mode = 1
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="ColorRect/BtnRestart"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "TRY AGAIN
+"
+label_settings = SubResource("LabelSettings_l2gq6")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BtnMenu" type="TextureButton" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -102.0
+offset_top = -166.0
+offset_right = 102.0
+offset_bottom = -79.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 3
+focus_mode = 0
+texture_normal = SubResource("AtlasTexture_52ukv")
+texture_pressed = SubResource("AtlasTexture_cbggo")
+texture_hover = SubResource("AtlasTexture_m7b0l")
+stretch_mode = 1
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="ColorRect/BtnMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "MAIN MENU
+"
+label_settings = SubResource("LabelSettings_l2gq6")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_j6wvj")
+}
+
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("5_3y7lf")
+bus = &"SFX"
+
+[connection signal="button_up" from="ColorRect/BtnRestart" to="." method="_on_btn_restart_button_up"]
+[connection signal="button_up" from="ColorRect/BtnMenu" to="." method="_on_btn_menu_button_up"]

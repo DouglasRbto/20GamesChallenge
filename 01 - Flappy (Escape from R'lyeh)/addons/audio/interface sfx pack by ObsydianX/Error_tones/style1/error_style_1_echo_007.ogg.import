@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bawkbi3rm82e6"
+path="res://.godot/imported/error_style_1_echo_007.ogg-9e2f240f61ef9834e1009c6839e7fe14.oggvorbisstr"
+
+[deps]
+
+source_file="res://addons/audio/interface sfx pack by ObsydianX/Error_tones/style1/error_style_1_echo_007.ogg"
+dest_files=["res://.godot/imported/error_style_1_echo_007.ogg-9e2f240f61ef9834e1009c6839e7fe14.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

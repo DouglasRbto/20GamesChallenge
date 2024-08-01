@@ -1,0 +1,84 @@
+[gd_scene load_steps=12 format=3 uid="uid://b06qmo3smomc5"]
+
+[ext_resource type="Script" path="res://player/player.gd" id="1_sg661"]
+[ext_resource type="Texture2D" uid="uid://bamecwxrdigvx" path="res://addons/imgs/free_cthulu by chierit/animations/cthulu_192x112_SpriteSheet.png" id="2_iwuxe"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uo4bt"]
+radius = 11.0
+height = 32.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_otbaj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3vyt6"]
+atlas = ExtResource("2_iwuxe")
+region = Rect2(0, 224, 192, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h55jb"]
+atlas = ExtResource("2_iwuxe")
+region = Rect2(192, 224, 192, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sg1uy"]
+atlas = ExtResource("2_iwuxe")
+region = Rect2(384, 224, 192, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3upud"]
+atlas = ExtResource("2_iwuxe")
+region = Rect2(576, 224, 192, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lhr4a"]
+atlas = ExtResource("2_iwuxe")
+region = Rect2(768, 224, 192, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oo3dm"]
+atlas = ExtResource("2_iwuxe")
+region = Rect2(960, 224, 192, 112)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2iqc5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3vyt6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h55jb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sg1uy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3upud")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lhr4a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oo3dm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+z_index = 1
+motion_mode = 1
+script = ExtResource("1_sg661")
+
+[node name="HitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0, -4)
+shape = SubResource("CapsuleShape2D_uo4bt")
+debug_color = Color(0.99049, 0, 0.277685, 0.42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("CapsuleShape2D_otbaj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -9)
+sprite_frames = SubResource("SpriteFrames_2iqc5")
+autoplay = "default"
+frame_progress = 0.233366
+
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

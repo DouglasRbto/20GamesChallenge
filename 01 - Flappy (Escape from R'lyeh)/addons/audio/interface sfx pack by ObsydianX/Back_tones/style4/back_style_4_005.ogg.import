@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://iccawhfbvnmo"
+path="res://.godot/imported/back_style_4_005.ogg-a97f5528a44336025fc26f1ce0e097b4.oggvorbisstr"
+
+[deps]
+
+source_file="res://addons/audio/interface sfx pack by ObsydianX/Back_tones/style4/back_style_4_005.ogg"
+dest_files=["res://.godot/imported/back_style_4_005.ogg-a97f5528a44336025fc26f1ce0e097b4.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dn2d47b0unfyu"
+path="res://.godot/imported/confirm_style_4_echo_001.ogg-ece58bc12ff4368ba0b619a49fcbb77d.oggvorbisstr"
+
+[deps]
+
+source_file="res://addons/audio/interface sfx pack by ObsydianX/Confirm_tones/style4/confirm_style_4_echo_001.ogg"
+dest_files=["res://.godot/imported/confirm_style_4_echo_001.ogg-ece58bc12ff4368ba0b619a49fcbb77d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

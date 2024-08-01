@@ -1,0 +1,103 @@
+[gd_scene load_steps=8 format=3 uid="uid://do8fnfhwgt4mw"]
+
+[ext_resource type="Texture2D" uid="uid://b2j7mk8oam28o" path="res://addons/imgs/Super Grotto Escape by ansimuz/Environment/Layers/back.png" id="1_7dxps"]
+[ext_resource type="PackedScene" uid="uid://b06qmo3smomc5" path="res://player/player.tscn" id="1_u2skk"]
+[ext_resource type="Script" path="res://system/parallax_background.gd" id="2_p7yfg"]
+[ext_resource type="Texture2D" uid="uid://5rfen6jv27rb" path="res://addons/imgs/Super Grotto Escape by ansimuz/Environment/Layers/far.png" id="2_t63kr"]
+[ext_resource type="Script" path="res://system/pillar_spawner.gd" id="6_hadbe"]
+[ext_resource type="PackedScene" uid="uid://c5dkm3nnecrl5" path="res://ui/game_ui.tscn" id="7_kk8ne"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vf8ni"]
+size = Vector2(1290, 48)
+
+[node name="Game" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_offset = Vector2(1280, 0)
+script = ExtResource("2_p7yfg")
+
+[node name="Crystals1" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.3, 0)
+motion_mirroring = Vector2(1500, 0)
+
+[node name="TextureRect" type="Sprite2D" parent="ParallaxBackground/Crystals1"]
+position = Vector2(0, 46)
+scale = Vector2(2.60833, 2.60833)
+texture = ExtResource("1_7dxps")
+centered = false
+
+[node name="Crystals2" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(741, 0)
+motion_scale = Vector2(0.3, 0)
+motion_mirroring = Vector2(1500, 0)
+
+[node name="TextureRect" type="Sprite2D" parent="ParallaxBackground/Crystals2"]
+position = Vector2(0, 46)
+scale = Vector2(2.60833, 2.60833)
+texture = ExtResource("1_7dxps")
+centered = false
+flip_v = true
+
+[node name="Ruins1" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(1.2, 1.2)
+motion_mirroring = Vector2(1280, 0)
+
+[node name="TextureRect" type="Sprite2D" parent="ParallaxBackground/Ruins1"]
+position = Vector2(0, 284)
+scale = Vector2(1.82083, 1.82083)
+texture = ExtResource("2_t63kr")
+centered = false
+region_rect = Rect2(0, 0, 352, 240)
+
+[node name="TextureRect2" type="Sprite2D" parent="ParallaxBackground/Ruins1"]
+position = Vector2(641, 437)
+scale = Vector2(-1.821, -1.821)
+texture = ExtResource("2_t63kr")
+centered = false
+region_rect = Rect2(0, 0, 352, 240)
+
+[node name="Ruins2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(1.2, 1.2)
+motion_mirroring = Vector2(1280, 0)
+
+[node name="TextureRect" type="Sprite2D" parent="ParallaxBackground/Ruins2"]
+position = Vector2(640, 284)
+scale = Vector2(1.82083, 1.82083)
+texture = ExtResource("2_t63kr")
+centered = false
+region_rect = Rect2(0, 0, 352, 240)
+
+[node name="TextureRect3" type="Sprite2D" parent="ParallaxBackground/Ruins2"]
+position = Vector2(1281, 437)
+rotation = 3.14159
+scale = Vector2(1.821, 1.821)
+texture = ExtResource("2_t63kr")
+centered = false
+region_rect = Rect2(0, 0, 352, 240)
+
+[node name="WorldLimit" type="RigidBody2D" parent="."]
+collision_mask = 2
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldLimit"]
+position = Vector2(639, -120)
+shape = SubResource("RectangleShape2D_vf8ni")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WorldLimit"]
+position = Vector2(639, 857)
+shape = SubResource("RectangleShape2D_vf8ni")
+
+[node name="Player" parent="." instance=ExtResource("1_u2skk")]
+unique_name_in_owner = true
+position = Vector2(640, 360)
+scale = Vector2(2, 2)
+speed = 0
+
+[node name="PillarSpawner" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(1400, 360)
+script = ExtResource("6_hadbe")
+
+[node name="GameUI" parent="." instance=ExtResource("7_kk8ne")]
+unique_name_in_owner = true
+visible = false
